@@ -105,16 +105,16 @@ function Rhform2() {
   };
 
   return (
-    <div className="formcontainer p-4 bg-amber-50 rounded-lg shadow-md max-w-md mx-auto mt-10 border-2">
-      <h2 className="title text-2xl font-bold text-center">User Form</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+    <div className="max-w-2xl mx-auto mt-12 bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+      <h2 className="text-xl font-semibold text-gray-800 text-center mb-6">User Form</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* name field */}
-        <div className="flex flex-col">
-          <label htmlFor="name" className="font-bold">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
             Username:
           </label>
           <input
-            className="p-3 border rounded w-full mb-4"
+            className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             type="text"
             id="name"
             placeholder="Enter Username"
@@ -125,12 +125,12 @@ function Rhform2() {
         </div>
 
         {/* email field */}
-        <div className="flex flex-col">
-          <label htmlFor="email" className="font-bold">
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
             Email:
           </label>
           <input
-            className="p-3 border rounded w-full mb-4"
+            className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             type="text"
             id="email"
             placeholder="Enter Email"
@@ -141,12 +141,12 @@ function Rhform2() {
         </div>
 
         {/* phone field */}
-        <div className="flex flex-col">
-          <label htmlFor="Primary-phone" className="font-bold">
+        <div>
+          <label htmlFor="Primary-phone" className="block text-sm font-medium text-gray-700 mb-1">
             Primary-Phone No:
           </label>
           <input
-            className="p-3 border rounded w-full mb-4"
+            className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             type="tel"
             id="Primary-phone"
             placeholder="Enter Primary phone Number"
@@ -155,12 +155,12 @@ function Rhform2() {
           />
           <ErrorMessage message={errors.phone?.[0]?.message} />
         </div>
-        <div className="flex flex-col">
-          <label htmlFor="Secondary-phone" className="font-bold">
+        <div>
+          <label htmlFor="Secondary-phone" className="block text-sm font-medium text-gray-700 mb-1">
             Secondary-Phone No:
           </label>
           <input
-            className="p-3 border rounded w-full mb-4"
+            className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             type="tel"
             id="Secondary-phone"
             placeholder="Enter Secondary phone Number"
@@ -171,12 +171,12 @@ function Rhform2() {
         </div>
 
         {/* bio field */}
-        <div className="flex flex-col">
-          <label htmlFor="bio" className="font-bold">
+        <div>
+          <label htmlFor="bio" className="block text-sm font-medium text-gray-700 mb-1">
             Bio
           </label>
           <textarea
-            className="p-3 border rounded w-full mb-4"
+            className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             name="bio"
             id="bio"
             {...register("bio")}
@@ -185,15 +185,15 @@ function Rhform2() {
         </div>
 
         {/* selection field */}
-        <div className="flex flex-col">
-          <label htmlFor="country" className="font-bold">
+        <div>
+          <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">
             Country Select
           </label>
           <select
             name="country"
             id="country"
             {...register("country")}
-            className="p-3 border rounded w-full mb-4"
+            className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           >
             <option value="">Select</option>
             <option value="NE">Nepal</option>
@@ -206,12 +206,12 @@ function Rhform2() {
         {/* skills field */}
         <div>
           {fields.map((field, index) => (
-            <div key={field.id}>
-              <label htmlFor={`skills-${index}`} className="font-bold">
+            <div key={field.id} className="space-y-1 mb-2">
+              <label htmlFor={`skills-${index}`} className="block text-sm font-medium text-gray-700">
                 Skills
               </label>
               <input
-                className="p-3 border rounded w-full mb-4"
+                className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                 type="text"
                 id={`skills-${index}`}
                 name="skills"
@@ -222,6 +222,7 @@ function Rhform2() {
                 text="Delete"
                 type="button"
                 onClick={() => remove(index)}
+                className="mt-1"
               />
 
               <ErrorMessage message={errors.skills?.[index]?.name?.message} />
@@ -232,16 +233,17 @@ function Rhform2() {
             text="Add Skill"
             type="button"
             onClick={() => append({ name: "" })}
+            className="mt-1"
           />
 
           {errors.skills && <ErrorMessage message={errors.skills?.message} />}
         </div>
 
         {/* gender field */}
-        <div className="flex flex-col">
-          <div className="gender font-bold">Select gender</div>
+        <div>
+          <div className="text-sm font-medium text-gray-700">Select gender</div>
 
-          <div className="radiobtn flex flex-row gap-5">
+          <div className="flex gap-6 mt-1">
             <label>
               <input type="radio" value="male" {...register("gender")} />
               Male
@@ -259,12 +261,12 @@ function Rhform2() {
         </div>
 
         {/* age range */}
-        <div className="flex flex-col">
-          <label htmlFor="rate" className="font-bold">
+        <div>
+          <label htmlFor="rate" className="block text-sm font-medium text-gray-700 mb-1">
             Rating
           </label>
           <input
-            className="py-3 border rounded w-full mb-4"
+            className="w-full"
             type="range"
             min="0"
             max="5"
@@ -274,12 +276,12 @@ function Rhform2() {
         </div>
 
         {/* password field */}
-        <div className="flex flex-col">
-          <label htmlFor="pass" className="font-bold">
+        <div>
+          <label htmlFor="pass" className="block text-sm font-medium text-gray-700 mb-1">
             Password:
           </label>
           <input
-            className="p-3 border rounded w-full mb-4"
+            className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             type="password"
             id="pass"
             placeholder="Enter password"
@@ -288,12 +290,12 @@ function Rhform2() {
           />
           <ErrorMessage message={errors.password?.message} />
         </div>
-        <div className="flex flex-col">
-          <label htmlFor="confpass" className="font-bold">
+        <div>
+          <label htmlFor="confpass" className="block text-sm font-medium text-gray-700 mb-1">
             Confirm Password:
           </label>
           <input
-            className="p-3 border rounded w-full mb-4"
+            className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             type="password"
             id="confpass"
             placeholder="Confirm password"
@@ -303,10 +305,10 @@ function Rhform2() {
           <ErrorMessage message={errors.confirmpassword?.message} />
         </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="upload" className="font-bold">Uplaod Image</label>
+        <div>
+          <label htmlFor="upload" className="block text-sm font-medium text-gray-700 mb-1">Uplaod Image</label>
            <input
-            className="p-3 border rounded w-full mb-4" 
+            className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" 
             type="file" 
             name="img" 
             {...register("img")} />
@@ -314,8 +316,8 @@ function Rhform2() {
         </div>
 
         {/* check box */}
-        <div className="flex flex-col">
-          <label htmlFor="check">
+        <div>
+          <label htmlFor="check" className="inline-flex items-center gap-2 text-sm text-gray-700">
             <input type="checkbox" name="check" {...register("check")} />
             Agree to continue
           </label>
@@ -323,7 +325,7 @@ function Rhform2() {
         </div>
 
         {/* submit button */}
-        <Button type="submit" text="Submit" />
+        <Button type="submit" text="Submit" className="w-full mt-2" />
       </form>
       <DevTool control={control} />
     </div>

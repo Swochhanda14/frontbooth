@@ -11,7 +11,7 @@ function InputField({
       type={type}
       id={id}
       placeholder={placeholder}
-      className="p-3 border rounded w-full mb-4"
+      className="p-3 border rounded w-full mb-1 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
       {...(register ? register(name, validation) : {})}
     />
   );
