@@ -1,9 +1,10 @@
 import Rhform from "./Rhform";
+import Rhform2 from "./Rhform2";
 
 function App(){
   return (
     <div>
-      <Rhform />
+      <Rhform2 />
     </div>
   );
 }
